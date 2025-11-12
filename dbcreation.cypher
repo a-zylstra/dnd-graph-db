@@ -43,3 +43,18 @@ MERGE(a:Ability {name:x["Primary Ability"]})
 MERGE(s:SavingThrow {name:x["Saving Throw"]})
 MERGE (c)-[:HASPRIMARYABILITY]->(a)
 MERGE (c)-[:HASSAVINGTHROW]->(s);
+
+// create choice node for fighter
+LOAD CSV WITH HEADERS FROM "file:///dnd_class.csv" AS x
+WITH x
+WHERE x.Class = "Fighter"
+MERGE(c:Class {name:x.Class})
+MERGE(s:SavingThrow {name:x["Saving Throw"]})
+MERGE (c)-[:HASSAVINGTHROW]->(s)
+MERGE(r)-[:HASCHOICE]->(ch:PrimaryAbilityChoice);
+
+// primary ability attached to only strength and dex
+// this would fall apart immediately the moment a class had a choice of not dex & strength
+MATCH (ch:PrimaryAbilityChoice), (a:Ability)
+WHERE a.name IN ["Strength", "Dexterity"]
+MERGE (ch)-[:CANAPPLYTO]->(a);
