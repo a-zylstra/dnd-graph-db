@@ -27,4 +27,10 @@ WITH x
 WHERE x.Race = "Half-Elf"
 MERGE(r:Race {name:x.Race})
 MERGE(a:Ability {name:x.Ability})
-MERGE(r)-[:HASCHOICE]->(:StatBonusChoice);
+MERGE(r)-[:GRANTSABILITYBONUSTO {bonus:x.Bonus}]->(a)
+MERGE(r)-[:HASCHOICE {bonus:1, num_choices:2}]->(ch:StatBonusChoice);
+
+// stat bonus attached to all abilities
+MATCH (s:StatBonusChoice), (a:Ability)
+MERGE(s)-[:CANAPPLYTO]->(a);
+
