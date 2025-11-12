@@ -18,8 +18,8 @@ LOAD CSV WITH HEADERS FROM "file:///dnd_race.csv" AS x
 WITH x
 WHERE x.Race <> "Half-Elf"
 MERGE(r:Race {name:x.Race})
-MERGE(a:Ability {name:x.Ability});
-MERGE(r)-[:GRANTSABILITYBONUSTO]->(a);
+MERGE(a:Ability {name:x.Ability})
+MERGE(r)-[:GRANTSABILITYBONUSTO {bonus:x.Bonus}]->(a);
 
 // create choice node for half-elf
 LOAD CSV WITH HEADERS FROM "file:///dnd_race.csv" AS x
