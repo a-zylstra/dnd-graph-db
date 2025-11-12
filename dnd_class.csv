@@ -1,0 +1,25 @@
+Class,Hit Die,Primary Ability,Saving Throw
+Barbarian,d12,Strength,Strength
+Barbarian,d12,Strength,Constitution
+Bard,d8,Charisma,Dexterity
+Bard,d8,Charisma,Charisma
+Cleric,d8,Wisdom,Wisdom
+Cleric,d8,Wisdom,Charisma
+Druid,d8,Wisdom,Intelligence
+Druid,d8,Wisdom,Wisdom
+Fighter,d10,Strength,Strength
+Fighter,d10,Dexterity,Constitution
+Monk,d8,Dexterity,Strength
+Monk,d8,Wisdom,Dexterity
+Paladin,d10,Strength,Wisdom
+Paladin,d10,Charisma,Charisma
+Ranger,d10,Dexterity,Strength
+Ranger,d10,Wisdom,Dexterity
+Rogue,d8,Dexterity,Dexterity
+Rogue,d8,Dexterity,Intelligence
+Sorcerer,d6,Charisma,Constitution
+Sorcerer,d6,Charisma,Charisma
+Warlock,d8,Charisma,Wisdom
+Warlock,d8,Charisma,Charisma
+Wizard,d6,Intelligence,Intelligence
+Wizard,d6,Intelligence,Wisdom
